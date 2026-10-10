@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">CONTACT & APPOINTMENTS</p>
+    <h1>Plan a visit to Pasayat Dental Clinic</h1>
+    <p class="lead">Send an appointment request, call, or message the clinic on WhatsApp.</p>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container contact-page-grid">
+    <div class="contact-sidebar">
+      <section class="contact-details contact-card" aria-labelledby="contact-details-heading">
+        <p class="eyebrow">GET IN TOUCH</p>
+        <h2 id="contact-details-heading">Clinic details</h2>
+        <dl>
+          <dt>Address</dt>
+          <dd>Pasayat Dental Clinic, Ispat Central Market, Ambagan Cir, behind Civic Centre, Bank Street, Sector 19, Rourkela, Odisha 769005</dd>
+
+          <dt>Phone</dt>
+          <dd><a href="tel:09437245564">09437245564</a></dd>
+
+          <dt>WhatsApp</dt>
+          <dd><a href="https://wa.me/919437245564" target="_blank" rel="noopener noreferrer">Message Pasayat Dental Clinic</a></dd>
+
+          <dt>Opening hours</dt>
+          <dd>10 AM to 10 PM</dd>
+        </dl>
+        <div class="contact-card-actions">
+          <a class="button button-secondary" href="tel:09437245564">Call the clinic</a>
+          <a class="button button-whatsapp" href="https://wa.me/919437245564" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </section>
+
+      <section class="map-card" aria-labelledby="map-card-heading">
+        <div class="map-card-art" aria-hidden="true">
+          <span class="map-grid-line map-grid-line-one"></span>
+          <span class="map-grid-line map-grid-line-two"></span>
+          <span class="map-pin">●</span>
+        </div>
+        <div class="map-card-copy">
+          <p class="eyebrow">FIND THE CLINIC</p>
+          <h2 id="map-card-heading">Ispat Central Market, Rourkela</h2>
+          <p>Ambagan Cir, behind Civic Centre, Bank Street, Sector 19, Odisha 769005</p>
+          <a class="button button-secondary" href="https://www.google.com/maps/place/Pasayat+Dental+Clinic+-+Braces+Specialist%2FTop+Dental+Clinic+in+Rourkela/@22.2588,84.8624768,17z/data=!3m1!4b1!4m6!3m5!1s0x3a201ec90dac97d9:0x9e8b292e2d89f005!8m2!3d22.2588!4d84.8650517!16s%2Fg%2F12ml2msb1" target="_blank" rel="noopener noreferrer">Open in Google Maps <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </div>
+
+    <form id="appointment" class="appointment-form contact-appointment-form" action="/contact" method="post">
+      <noscript><p>Please enable JavaScript to send this form, or call <a href="tel:09437245564">09437245564</a>.</p></noscript>
+      <p class="eyebrow">APPOINTMENT REQUEST</p>
+      <h2>Request an appointment</h2>
+      <p class="form-intro">Fill in your details, then open WhatsApp to review and send your appointment request to the clinic.</p>
+
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" autocomplete="name" minlength="2" maxlength="80" required>
+
+      <label for="phone">Phone number</label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="e.g. 9876543210" minlength="10" maxlength="20" required>
+
+      <div class="form-row">
+        <div>
+          <label for="preferred_date">Preferred date</label>
+          <input id="preferred_date" name="preferred_date" type="date" required>
+        </div>
+        <div>
+          <label for="preferred_time">Preferred time</label>
+          <input id="preferred_time" name="preferred_time" type="time" min="10:00" max="22:00" required aria-describedby="time-help">
+          <span class="field-help" id="time-help">Choose a time from 10 AM to 10 PM.</span>
+        </div>
+      </div>
+
+      <label for="treatment">Treatment</label>
+      <select id="treatment" name="treatment" required>
+        <option value="">Select a treatment</option>
+        <option value="Braces">Braces</option>
+        <option value="Root Canal">Root Canal</option>
+        <option value="Teeth Cleaning">Teeth Cleaning</option>
+        <option value="Fillings">Fillings</option>
+      </select>
+
+      <label for="message">Message <span class="optional">(optional)</span></label>
+      <textarea id="message" name="message" rows="4" maxlength="1000" placeholder="Anything you would like the clinic to know?"></textarea>
+
+      <div class="appointment-actions whatsapp-only">
+        <button class="button button-whatsapp form-submit" type="submit" disabled>Continue to WhatsApp</button>
+      </div>
+      <p class="form-note">This is a request only. Your appointment is not confirmed until the clinic contacts you.</p>
+      <p class="form-note">Your details are passed to WhatsApp when you continue. This website does not save your form. Please avoid sharing sensitive medical information.</p>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+{% endblock %}
